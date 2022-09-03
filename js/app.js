@@ -7,6 +7,7 @@ function loadCategories(){
 
 const displayCategories = categories =>{
     console.log(categories);
+    
     const categoriesContainer = document.getElementById('categories-container');
     categories.forEach(category=>{
         const categoryDiv = document.createElement('div');
@@ -15,10 +16,23 @@ const displayCategories = categories =>{
         <div class="">
         <button onclick="loadingDetails('${category.category_id}')" type="button" class="btn btn-secondary">
         ${category.category_name}
-        </button></div>`;
+        </button>
+        
+        </div>`;
         categoriesContainer.appendChild(categoryDiv);
         
     })
+    
+}
+
+const toggleSpiner = isLoading=>{
+  const loaderSection = document.getElementById('spiner');
+  if(isLoading){
+    loaderSection.classList.remove('d-none');
+  }
+  else{
+    loaderSection.classList.add('d-none');
+  }
 }
 
 function loadingDetails(id){
@@ -26,7 +40,7 @@ function loadingDetails(id){
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(res=>res.json())
     .then(data=>displayDetails(data.data))
-    
+    toggleSpiner(true);
 }
 function displayDetails(details){
     const detailsContainer = document.getElementById('details-container');
@@ -50,7 +64,7 @@ function displayDetails(details){
                 <small class="text-muted">${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
                 </div>
-                <button onclick="displayDetails()" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
+                <button onclick= type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
                 </p>
               </div>
             </div>
@@ -58,6 +72,7 @@ function displayDetails(details){
         `;
         detailsContainer.appendChild(detailDiv);
     }
+    toggleSpiner(false);
 }
 
 const modalOpen =()=>{
