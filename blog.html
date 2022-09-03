@@ -39,8 +39,32 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first
-                item's accordion body.
+                <h5>Var:</h5>
+                <p>
+                  <ul>
+                    <li>
+                      <h6>Scope:</h6> Global scoped or function scoped. The scope of the var keyword is the global or function scope. It means variables defined
+                      outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the
+                      function.
+                    </li>
+                  </ul>
+                </p>
+                <h5>Let:</h5>
+                <p>
+                  <ul>
+                    <li>
+                      <h6>Scope: block scoped:</h6>The let keyword is an improved version of the var keyword.The scope of a let variable is only block scoped. It can’t be accessible outside the particular block ({block}).
+                    </li>
+                  </ul>
+                </p>
+                <h5>Const:</h5>
+                <p>
+                  <ul>
+                    <li>
+                      <h6>Scope: block scoped:</h6> The const keyword has all the properties that are the same as the let keyword, except the user cannot update it.When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared. 
+                    </li>
+                  </ul>
+                </p>
               </div>
             </div>
           </div>
@@ -54,7 +78,7 @@
                 aria-expanded="false"
                 aria-controls="flush-collapseTwo"
               >
-                Q2-
+                Q2-Difference between regular function and arrow function
               </button>
             </h2>
             <div
@@ -64,8 +88,9 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second
-                item's accordion body. Let's imagine this being filled with some actual content.
+                Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are
+                constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible, i.e
+                arrow functions can never be used as constructor functions.
               </div>
             </div>
           </div>
@@ -79,7 +104,7 @@
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
               >
-                Q3-
+                Q3-forEach,map,filter,find
               </button>
             </h2>
             <div
@@ -89,9 +114,68 @@
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third
-                item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at
-                least at first glance, a bit more representative of how this would look in a real-world application.
+                <h5>.map():</h5>
+                <p>
+                  <ul>
+                    <li>
+                      .map() executes the same code on every element in an array and returns a new array with the updated elements..map() when you want
+                    to transform elements in an array.
+                    </li>
+                  </ul>
+                </p>
+                <h5>.filter():</h5>
+                <p>
+                  <ul>
+                    <li>
+                      .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that
+                    return truthy for the criteria..filter() when you want to select a subset of multiple elements from an array.
+                    </li>
+                  </ul>
+                </p>
+                <h5>.forEach: </h5>
+                <p>
+                  <ul>
+                    <li>
+                      .forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.
+                    </li>
+                  </ul>
+                </p>
+                <h5>.find: </h5>
+                <p>
+                  <ul>
+                    <li>
+                      .find() When you want to select a single element from an array.
+                    </li>
+                  </ul>
+                </p>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseFour"
+                aria-expanded="false"
+                aria-controls="flush-collapseFour"
+              >
+                Q4-Why we use template string in javascript?
+              </button>
+            </h2>
+            <div
+              id="flush-collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingFour"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">
+                <h5>What are template strings in JS?</h5>
+                  <p>Template literals are literals delimited with backtick (`) characters, allowing for multi-line strings, for string interpolation with embedded expressions, and for special constructs called tagged templates</p>
+                  <h5>Why we use?</h5>
+                  <p>Template literals provide an easy way to interpolate variables and expressions into strings. The method is called string interpolation.</p>
               </div>
             </div>
           </div>
