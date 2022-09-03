@@ -65,7 +65,7 @@ function displayDetails(details){
                 <p>Author: ${detail.author.name}</p>
                 <p class="card-text">
                 <small class="text-muted"> Published Date : ${detail.author.published_date}</small> 
-                <p>Total View: ${detail.total_view} M</p>
+                <p> <i class="fa-regular fa-eye"> </i> ${detail.total_view} M</p>
                 <small class="text-muted">${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
                 </div>
