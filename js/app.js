@@ -62,11 +62,16 @@ function displayDetails(details){
                 <h5 class="card-title">${detail.title}</h5>
                 <p class="card-text">${detail.details.slice(0,200)}</p>
                 <div class="d-flex justify-content-between">
-                <p>Author: ${detail.author.name}</p>
+                <p>Author: ${detail.author.name ? detail.author.name:'No Author Found'} </br>
+                <small class="text-muted"> Published Date : ${detail.author.published_date}</small> </p>
+                
                 <p class="card-text">
-                <small class="text-muted"> Published Date : ${detail.author.published_date}</small> 
-                <p> <i class="fa-regular fa-eye"> </i> ${detail.total_view} M</p>
-                <small class="text-muted">${detail.rating.badge}</small>
+                <p> <i class="fa-regular fa-eye"> </i> ${detail.total_view ? detail.total_view: 'No view yet'} M</p>
+                <small class="text-muted"> <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i> ${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
                 </div>
                 <button onclick="loadModal('${detail._id}')" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#newsModal">See More</button>
