@@ -34,7 +34,7 @@ const toggleSpiner = isLoading=>{
 }
 
 function loadingDetails(id){
-  console.log('clicked')
+  console.log('clicked');
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(res=>res.json())
     .then(data=>displayDetails(data.data))
@@ -46,7 +46,7 @@ function loadingDetails(id){
 function displayDetails(details){
     const countingItems = document.getElementById('counting-items');
     countingItems.innerText=`
-    ${details.length} items found
+    ${details.length} Related Items Found
     `;
     const detailsContainer = document.getElementById('details-container');
     detailsContainer.innerHTML='';
@@ -69,7 +69,7 @@ function displayDetails(details){
                 <small class="text-muted">${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
                 </div>
-                <button  type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
+                <button onclick="loadModal('${detail._id}')" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
                 </p>
               </div>
             </div>
@@ -78,6 +78,31 @@ function displayDetails(details){
         detailsContainer.appendChild(detailDiv);
     }
     toggleSpiner(false);
+}
+const loadModal=(newsid)=>{
+  fetch(`https://openapi.programming-hero.com/api/news/${newsid}`)
+  .then(res=>res.json())
+  .then(data=>displaModal(data.data[0]))
+}
+const displaModal =(news)=>{
+  console.log(news);
+    const modalContainer = document.getElementById('display-modal');
+    modalContainer.textContent=`
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">...</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    `;
 }
 
 loadCategories();
