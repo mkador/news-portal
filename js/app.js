@@ -12,19 +12,25 @@ const displayCategories = categories =>{
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('serial');
         categoryDiv.innerHTML = `
-        <div class="d-flex justify-content-center text-info"><h6 onclick="loadingDetails()">${category.category_name}</h6></div>`;
+        <div class="">
+        <button onclick="loadingDetails('${category.category_id}')" type="button" class="btn btn-secondary">
+        ${category.category_name}
+        </button></div>`;
         categoriesContainer.appendChild(categoryDiv);
-        loadingDetails();
+        
     })
 }
 
-function loadingDetails(){
-    fetch('https://openapi.programming-hero.com/api/news/category/01')
+function loadingDetails(id){
+  console.log('clicked')
+    fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(res=>res.json())
     .then(data=>displayDetails(data.data))
+    
 }
 function displayDetails(details){
     const detailsContainer = document.getElementById('details-container');
+    detailsContainer.innerHTML='';
     for(const detail of details){
         const detailDiv = document.createElement('div');
         detailDiv.innerHTML = `
@@ -35,7 +41,7 @@ function displayDetails(details){
             <div class="col-md-8">
               <div class="card-body p-3">
                 <h5 class="card-title">${detail.title}</h5>
-                <p class="card-text">${detail.details.slice(0,200)}...</p>
+                <p class="card-text">${detail.details.slice(0,200)}</p>
                 <div class="d-flex justify-content-between">
                 <p>Author: ${detail.author.name}</p>
                 <p class="card-text">
@@ -43,9 +49,8 @@ function displayDetails(details){
                 <p>Total View: ${detail.total_view} M</p>
                 <small class="text-muted">${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
-                
                 </div>
-                <button class="btn btn-info">See More</button>
+                <button onclick="displayDetails()" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
                 </p>
               </div>
             </div>
@@ -55,5 +60,7 @@ function displayDetails(details){
     }
 }
 
-
+const modalOpen =()=>{
+  
+}
 loadCategories();
