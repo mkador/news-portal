@@ -69,7 +69,7 @@ function displayDetails(details){
                 <small class="text-muted">${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
                 </div>
-                <button onclick="loadModal('${detail._id}')" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
+                <button onclick="loadModal('${detail._id}')" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#newsModal">See More</button>
                 </p>
               </div>
             </div>
@@ -86,23 +86,13 @@ const loadModal=(newsid)=>{
 }
 const displaModal =(news)=>{
   console.log(news);
-    const modalContainer = document.getElementById('display-modal');
-    modalContainer.textContent=`
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">...</div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-    `;
+    const newsModalLabel = document.getElementById('newsModalLabel');
+    newsModalLabel.innerText =news.title;
+    const newsDetails = document.getElementById('news-information');
+    newsDetails.innerHTML=`
+    <img style="height:300px;width:100%" src="${news.image_url}" alt="">
+    <p>${news.details}</p>`;
+   
 }
 
 loadCategories();
