@@ -6,8 +6,6 @@ function loadCategories(){
 }
 
 const displayCategories = categories =>{
-    console.log(categories);
-    
     const categoriesContainer = document.getElementById('categories-container');
     categories.forEach(category=>{
         const categoryDiv = document.createElement('div');
@@ -41,8 +39,15 @@ function loadingDetails(id){
     .then(res=>res.json())
     .then(data=>displayDetails(data.data))
     toggleSpiner(true);
+
 }
+
+
 function displayDetails(details){
+    const countingItems = document.getElementById('counting-items');
+    countingItems.innerText=`
+    ${details.length} items found
+    `;
     const detailsContainer = document.getElementById('details-container');
     detailsContainer.innerHTML='';
     for(const detail of details){
@@ -64,7 +69,7 @@ function displayDetails(details){
                 <small class="text-muted">${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
                 </div>
-                <button onclick= type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
+                <button  type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">See More</button>
                 </p>
               </div>
             </div>
@@ -75,7 +80,4 @@ function displayDetails(details){
     toggleSpiner(false);
 }
 
-const modalOpen =()=>{
-  
-}
 loadCategories();
