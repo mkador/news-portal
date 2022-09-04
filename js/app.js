@@ -60,7 +60,7 @@ function displayDetails(details){
             <div class="col-md-8">
               <div class="card-body p-3">
                 <h5 class="card-title">${detail.title}</h5>
-                <p class="card-text">${detail.details.slice(0,200)}</p>
+                <p class="card-text">${detail.details.slice(0,200)}...</p>
                 <div class="d-flex justify-content-between">
                 <p>Author: ${detail.author.name ? detail.author.name:'No Author Found'} </br>
                 <small class="text-muted"> Published Date : ${detail.author.published_date}</small> </p>
@@ -74,7 +74,7 @@ function displayDetails(details){
                 <i class="fa-solid fa-star-half-stroke"></i> ${detail.rating.badge}</small>
                 <small class="text-muted">${detail.rating.number}</small>
                 </div>
-                <button onclick="loadModal('${detail._id}')" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#newsModal">See More</button>
+                <div class="text-end"><button onclick="loadModal('${detail._id}')" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#newsModal"><i class="fa-sharp fa-solid fa-arrow-right"></i></button></div>
                 </p>
               </div>
             </div>
