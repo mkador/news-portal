@@ -5,9 +5,14 @@
   }
   @media only screen and (max-width: 600px) {
    
-    .serial{
+    
       
-      flex-direction: column!important;
       
-  }
+      .d-flex {
+        display: flex!important;
+        text-align: center;
+        flex-direction: column;
+    }
+      
+  
 }
